@@ -7,15 +7,11 @@ export default class ShadowRoot extends React.PureComponent {
 
   static propTypes = {
     mode: PropTypes.oneOf(['open', 'closed'])
-  }
+  };
 
   static defaultProps = {
     mode: 'closed'
   };
-
-  componentDidUpdate() {
-    ReactDOM.render(this.props.children, this.shadowRoot);
-  }
 
   componentDidMount() {
     this.shadowRoot = ReactDOM.findDOMNode(this).parentNode.attachShadow({mode: this.props.mode});
@@ -29,6 +25,6 @@ export default class ShadowRoot extends React.PureComponent {
       return <span></span>;
     }
 
-    return null;
+    return ReactDOM.createPortal(this.props.children, this.shadowRoot);
   }
 }
