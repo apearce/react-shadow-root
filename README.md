@@ -10,12 +10,7 @@ import React form 'react';
 import ShadowRoot from 'react-shadow-root';
 
 class ShadowCounter extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cnt: 0
-    }
-  }
+  state = { cnt: 0 };
 
   increment = () => {
     this.setState({
@@ -26,29 +21,43 @@ class ShadowCounter extends React.Component {
   render() {
     const style = `span {
       background-color: #333;
+      border-radius: 3px;
       color: #fff;
-      padding: 0 5px;
+      padding: 1px 5px;
+    }
+    button {
+      background-color: #fff;
+      border: 1px solid currentColor;
+      border-radius: 3px;
+      color: #333;
+      cursor: pointer;
+      outline: 0;
+    }
+    button:active {
+      background-color: #333;
+      color: #fff;
     }`;
 
     return (
       <div> // The shadow root will be attached to this DIV
         <ShadowRoot>
           <style>{style}</style>
-          <span id="count">{this.state.cnt}</span> <button onClick={this.increment}>Click</button>
+          <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
         </ShadowRoot>
       </div>
     );
   }
 }
 ```
-When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
+When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
 
-## Requirements
-A minimum of React 16 is required
+## Props
+| Prop | Values | Default | Description |
+|------|------|---------|-------------|
+| mode | `open` or `closed` | `closed` | Sets the mode of the shadow root |
 
 ## Notes
-Not all browsers support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.
-
-Not all HTML elements support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to) for more information.
-
-It has been tested with the 'new' Context API and it worked fine. It has not been tested with the legacy API.
+- A minimum of React 16 is required
+- Not all browsers support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.
+- Not all HTML elements support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to) for more information.
+- It has been tested with the 'new' Context API and it worked fine. It has not been tested with the legacy API.
