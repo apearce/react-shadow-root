@@ -5,11 +5,11 @@
     "main": "./lib/index.js",
     "license": "MIT",
     "scripts": {
-        "dev": "concurrently \"npm run build:watch\" \"npm run examples\"",
+        "dev": "concurrently \"npm run build:watch\" \"npm run docs\"",
         "build": "babel src/lib -d lib --copy-files",
         "build:watch": "babel src/lib -w -d lib --copy-files",
-        "examples": "webpack-dev-server --mode development",
-        "examples:prod": "webpack --mode production"
+        "docs": "webpack-dev-server --mode development",
+        "docs:prod": "webpack --mode production"
     },
     "peerDependencies": {
         "prop-types": "^15.6.0",

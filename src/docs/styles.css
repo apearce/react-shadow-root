@@ -1,0 +1,26 @@
+body {
+  background: #eee;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+#WTF {
+  display: none;
+}
+
+code {
+  background-color: #fff;
+  border-radius: 3px;
+  display: block;
+  white-space: pre;
+}
+
+code.inline {
+  display: inline;
+}
+
+.output {
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  width: 600px;
+}

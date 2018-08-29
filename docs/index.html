@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Adds a shadow root to your React components so you can use the shadow DOM">
+  <title>React Shadow Root Examples</title>
+</head>
+
+<body>
+  <h1 id="WTF">What the <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">FOUC</a>?</h1>
+  <h1>Examples</h1>
+  <h2>A Basic Example</h2>
+  <p>Here is a basic example. Be sure to look in your browser console to see tht the content is actually in the shadow DOM.</p>
+  <code>
+    export default class BasicDemo extends React.Component {
+      state = { cnt: 0 };
+
+      increment = () =&gt; {
+        this.setState({
+          cnt: this.state.cnt + 1
+        });
+      }
+
+      render() {
+        const style = `span {
+          background-color: #333;
+          border-radius: 3px;
+          color: #fff;
+          padding: 1px 5px;
+        }
+        button {
+          background-color: #fff;
+          border: 1px solid currentColor;
+          border-radius: 3px;
+          color: #333;
+          cursor: pointer;
+          outline: 0;
+        }
+        button:active {
+          background-color: #333;
+          color: #fff;
+        }`;
+
+        return (
+          &lt;div&gt; // The shadow root will be attached to this DIV
+            &lt;ShadowRoot&gt;
+              &lt;style&gt;{style}&lt;/style&gt;
+              &lt;span&gt;{this.state.cnt}&lt;/span&gt; &lt;button onClick={this.increment}&gt;Click Me&lt;/button&gt;
+            &lt;/ShadowRoot&gt;
+          &lt;/div&gt;
+        );
+      }
+    }
+  </code>
+  <p>This is the output</p>
+  <div id="basic" class="output"></div>
+  <h2>Working With Slots</h2>
+  <p>Let's steal and example from <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#A_more_involved_example" target="_blank">MDN</a>.
+  We'll modify it to be a React component instead of a web component. Be sure to include <code class="inline">{this.props.children}</code> after the closing ShadowRoot tag. Below is the React equivalent of the template.</p>
+  <code>
+    class ElementDetails extends React.Component {
+      render() {
+        const style = `
+          details { font-family: "Open Sans Light",Helvetica,Arial }
+          .name { font-weight: bold; color: #217ac0; font-size: 120% }
+          h4 { margin: 10px 0 -8px 0 }
+          h4 span { background: #217ac0; padding: 2px 6px 2px 6px }
+          h4 span { border: 1px solid #cee9f9; border-radius: 4px }
+          h4 span { color: white }
+          .attributes { margin-left: 22px; font-size: 90% }
+          .attributes p { margin-left: 16px; font-style: italic }
+        `;
+
+        return (&lt;div&gt;
+          &lt;ShadowRoot&gt;
+            &lt;style&gt;{style}&lt;/style&gt;
+            &lt;details&gt;
+              &lt;summary&gt;
+                &lt;span&gt;
+                  &lt;code className="name"&gt;&amp;lt;&lt;slot name="element-name"&gt;NEED NAME&lt;/slot&gt;&amp;gt;&lt;/code&gt;
+                  &lt;i className="desc"&gt;&lt;slot name="description"&gt;NEED DESCRIPTION&lt;/slot&gt;&lt;/i&gt;
+                &lt;/span&gt;
+              &lt;/summary&gt;
+              &lt;div className="attributes"&gt;
+                &lt;h4&gt;&lt;span&gt;Attributes&lt;/span&gt;&lt;/h4&gt;
+                &lt;slot name="attributes"&gt;&lt;p&gt;None&lt;/p&gt;&lt;/slot&gt;
+              &lt;/div&gt;
+            &lt;/details&gt;
+            &lt;hr /&gt;
+          &lt;/ShadowRoot&gt;
+          {this.props.children}
+        &lt;/div&gt;);
+      }
+    }
+  </code>
+  <p>And how you might use it.</p>
+  <code>
+    export default function SlotsDemo() {
+      return (
+        &lt;React.Fragment&gt;
+          &lt;ElementDetails&gt;
+            &lt;span slot="element-name"&gt;slot&lt;/span&gt;
+            &lt;span slot="description"&gt;A placeholder inside a web
+            component that users can fill with their own markup,
+            with the effect of composing different DOM trees
+            together.&lt;/span&gt;
+            &lt;dl slot="attributes"&gt;
+              &lt;dt&gt;name&lt;/dt&gt;
+              &lt;dd&gt;The name of the slot.&lt;/dd&gt;
+            &lt;/dl&gt;
+          &lt;/ElementDetails&gt;
+          &lt;ElementDetails&gt;
+            &lt;span slot="element-name"&gt;template&lt;/span&gt;
+            &lt;span slot="description"&gt;A mechanism for holding client-
+              side content that is not to be rendered when a page is
+              loaded but may subsequently be instantiated during
+              runtime using JavaScript.&lt;/span&gt;
+          &lt;/ElementDetails&gt;
+        &lt;/React.Fragment&gt;
+      );
+    }
+  </code>
+  <p>This is the end result</p>
+  <div id="slots" class="output"></div>
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>
