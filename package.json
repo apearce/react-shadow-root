@@ -1,6 +1,6 @@
 {
     "name": "react-shadow-root",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Adds a shadow root to React components",
     "main": "./lib/index.js",
     "license": "MIT",
