@@ -4,6 +4,9 @@ Lets you add a shadow root to React components allowing you to use the shadow DO
 ## Installation
 `npm install --save react-shadow-root`
 
+## Examples
+https://apearce.github.io/react-shadow-root/
+
 ## Usage
 ```jsx
 import React form 'react';
