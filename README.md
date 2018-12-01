@@ -56,7 +56,7 @@ When the shadow root is created on its parent element, all children are copied i
 
 ## Props
 | Prop | Type | Values | Default | Description |
-|------|------|---------|-------------|
+|------|------|------|---------|-------------|
 | `delegatesFocus` | `Boolean` | `true` or `false` | `false` | Expands the focus behavior of elements within the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#delegates-focus) for more information. |
 | `mode` | `String` | `open` or `closed` | `closed` | Sets the mode of the shadow root. |
 
