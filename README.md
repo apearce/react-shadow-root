@@ -55,9 +55,10 @@ class ShadowCounter extends React.Component {
 When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
 
 ## Props
-| Prop | Values | Default | Description |
+| Prop | Type | Values | Default | Description |
 |------|------|---------|-------------|
-| mode | `open` or `closed` | `closed` | Sets the mode of the shadow root |
+| `delegatesFocus` | `Boolean` | `true` or `false` | `false` | Expands the focus behavior of elements within the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#delegates-focus) for more information. |
+| `mode` | `String` | `open` or `closed` | `closed` | Sets the mode of the shadow root. |
 
 ## Notes
 - A minimum of React 16 is required

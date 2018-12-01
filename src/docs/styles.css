@@ -11,6 +11,7 @@ code {
   background-color: #fff;
   border-radius: 3px;
   display: block;
+  margin: 10px 0;
   white-space: pre;
 }
 
@@ -21,6 +22,11 @@ code.inline {
 .output {
   background-color: #fff;
   border-radius: 3px;
+  margin: 10px 0;
   padding: 10px;
   width: 600px;
+}
+
+.focus-demo:focus {
+  outline: 2px solid red;
 }

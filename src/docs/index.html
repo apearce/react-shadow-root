@@ -12,7 +12,7 @@
 <body>
   <h1 id="WTF">What the <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">FOUC</a>?</h1>
   <h1>Examples</h1>
-  <h2>A Basic Example</h2>
+  <h2 id="basic">A Basic Example</h2>
   <p>Here is a basic example. Be sure to look in your browser console to see that the content is actually in the shadow DOM.</p>
   <code>
     export default class BasicDemo extends React.Component {
@@ -55,9 +55,9 @@
       }
     }
   </code>
-  <p>This is the output:</p>
-  <div id="basic" class="output"></div>
-  <h2>Working With Slots</h2>
+  This is the output:
+  <div id="basic-demo" class="output"></div>
+  <h2 id="slots">Working With Slots</h2>
   <p>Let's steal an example from <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#A_more_involved_example" target="_blank">MDN</a>.
   We'll modify it to be a React component instead of a web component. Be sure to include <code class="inline">{this.props.children}</code> after the closing ShadowRoot tag. Below is the React equivalent of the template.</p>
   <code>
@@ -96,7 +96,7 @@
       }
     }
   </code>
-  <p>And how you might use it.</p>
+  And how you might use it:
   <code>
     export default function SlotsDemo() {
       return (
@@ -123,8 +123,39 @@
       );
     }
   </code>
-  <p>This is the end result:</p>
-  <div id="slots" class="output"></div>
+  This is the end result:
+  <div id="slots-demo" class="output"></div>
+  <h2 id="delegates-focus">Delegates Focus</h2>
+  <p>Click <a href="https://developers.google.com/web/fundamentals/web-components/shadowdom#focus" target="_blank">here</a> for more info on <code class="inline">delegatesFocus</code>. Below are live demos of the examples from that article.</p>
+  <code>
+    export default class FocusDemo extends React.Component {
+      render() {
+        const { delegatesFocus } = this.props;
+        const style = `:host {
+          border: 1px dotted black;
+          display: flex;
+          padding: 16px;
+        }
+        :focus {
+          outline: 2px solid blue;
+        }`;
+
+        return (
+          &lt;div className="focus-demo"&gt;
+            &lt;ShadowRoot delegatesFocus={delegatesFocus}&gt;
+              &lt;style&gt;{style}&lt;/style&gt;
+              &lt;div&gt;Clickable Shadow DOM text&lt;/div&gt;
+              &lt;input type="text" placeholder="Input inside shadow dom" /&gt;
+            &lt;/ShadowRoot&gt;
+          &lt;/div&gt;
+        );
+      }
+    }
+  </code>
+  Set to true:
+  <div id="focus-demo-true" class="output"></div>
+  Not set:
+  <div id="focus-demo-false" class="output"></div>
 </body>
 
 </html>

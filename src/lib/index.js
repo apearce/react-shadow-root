@@ -6,15 +6,20 @@ export default class ShadowRoot extends React.PureComponent {
   state = { initialized: false };
 
   static propTypes = {
+    delegatesFocus: PropTypes.bool,
     mode: PropTypes.oneOf(['open', 'closed'])
   };
 
   static defaultProps = {
+    delegatesFocus: false,
     mode: 'closed'
   };
 
   componentDidMount() {
-    this.shadowRoot = ReactDOM.findDOMNode(this).parentNode.attachShadow({mode: this.props.mode});
+    this.shadowRoot = ReactDOM.findDOMNode(this).parentNode.attachShadow({
+      delegatesFocus: this.props.delegatesFocus,
+      mode: this.props.mode
+    });
     this.setState({
       initialized: true
     });
