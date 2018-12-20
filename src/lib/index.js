@@ -1,35 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import ShadowRoot from './ShadowRoot.js';
+import StyleSlot from './StyleSlot.js';
 
-export default class ShadowRoot extends React.PureComponent {
-  state = { initialized: false };
+ShadowRoot.StyleSlot = StyleSlot;
 
-  static propTypes = {
-    delegatesFocus: PropTypes.bool,
-    mode: PropTypes.oneOf(['open', 'closed'])
-  };
-
-  static defaultProps = {
-    delegatesFocus: false,
-    mode: 'closed'
-  };
-
-  componentDidMount() {
-    this.shadowRoot = ReactDOM.findDOMNode(this).parentNode.attachShadow({
-      delegatesFocus: this.props.delegatesFocus,
-      mode: this.props.mode
-    });
-    this.setState({
-      initialized: true
-    });
-  }
-
-  render() {
-    if (!this.state.initialized) {
-      return <span></span>;
-    }
-
-    return ReactDOM.createPortal(this.props.children, this.shadowRoot);
-  }
-}
+export default ShadowRoot;
+export { StyleSlot };

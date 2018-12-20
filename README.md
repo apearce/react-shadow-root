@@ -1,5 +1,5 @@
 # react-shadow-root
-Lets you add a shadow root to React components allowing you to use the shadow DOM.
+Lets you add a shadow root to React components allowing you to use the shadow DOM. It also includes a `StyleSlot` component which allows users to easily, but not accidentally, override the styles in the shadow DOM of the component.
 
 ## Installation
 `npm install --save react-shadow-root`
@@ -7,7 +7,8 @@ Lets you add a shadow root to React components allowing you to use the shadow DO
 ## Examples
 https://apearce.github.io/react-shadow-root/
 
-## Usage
+## ShadowRoot
+### Usage
 ```jsx
 import React form 'react';
 import ShadowRoot from 'react-shadow-root';
@@ -54,11 +55,18 @@ class ShadowCounter extends React.Component {
 ```
 When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
 
-## Props
+### Props
 | Prop | Type | Values | Default | Description |
 |------|------|------|---------|-------------|
 | `delegatesFocus` | `Boolean` | `true` or `false` | `false` | Expands the focus behavior of elements within the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#delegates-focus) for more information. |
 | `mode` | `String` | `open` or `closed` | `closed` | Sets the mode of the shadow root. |
+
+## StyleSlot
+Add a `StyleSlot` after the styles for your component. If a user passes a child `style` tag with the `slot` attribute set to the same name as the `StyleSlot` components `name` attribute, the styles will be merged in to the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#style-slot)
+### Props
+| Prop | Type | Default | Description |
+|------|------|------|---------|-------------|
+| `name` | `String` | `styles` | Sets the name of the slot. |
 
 ## Notes
 - A minimum of React 16 is required
