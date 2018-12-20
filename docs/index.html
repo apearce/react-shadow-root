@@ -15,6 +15,9 @@
   <h2 id="basic">A Basic Example</h2>
   <p>Here is a basic example. Be sure to look in your browser console to see that the content is actually in the shadow DOM.</p>
   <code>
+    import React form 'react';
+    import ShadowRoot from 'react-shadow-root';
+
     export default class BasicDemo extends React.Component {
       state = { cnt: 0 };
 
@@ -57,6 +60,47 @@
   </code>
   This is the output:
   <div id="basic-demo" class="output"></div>
+  <h2 id="style-slot">Using StyleSlot</h2>
+  <p>Let's take the basic demo and allow the user to override styles. To do this, we have to make add a StyleSlot to the ShadowRoot, along with allowing the component to render children.</p>
+  <code>
+    import ShadowRoot, { StyleSlot } from 'react-shadow-root';
+    ...
+    &lt;div&gt; // The shadow root will be attached to this DIV
+      &lt;ShadowRoot&gt;
+        &lt;style&gt;{style}&lt;/style&gt;
+        &lt;StyleSlot /&gt;
+        &lt;span&gt;{this.state.cnt}&lt;/span&gt; &lt;button onClick={this.increment}&gt;Click Me&lt;/button&gt;
+      &lt;/ShadowRoot&gt;
+      {this.props.children}
+    &lt;/div&gt;
+  </code>
+  <p>Now user can easily override any styles in the shadow DOM of the component by passing a child <code class="inline">style</code> tag
+  with the <code class="inline">name</code> attribute set to the name of the StyleSlot's <code class="inline">name</code> prop,
+  which is <code class="inline">styles</code> by default. Note the use of <code class="inline">:host</code> in <code class="inline">userStyles</code>.
+  <code class="inline">:host</code> only works in the shadow DOM. This ensures the styles do not affect the rest of the page.</p>
+  <code>
+    export default class StylesDemo extends React.Component {
+      render() {
+        const userStyles = `:host span {
+          background-color: #c00;
+          border-radius: 10px;
+        }
+        :host button {
+          color: #c00;
+        }
+        :host button:active {
+          background-color: #c00;
+        }`;
+
+        return (
+            &lt;BasicDemo&gt;
+              &lt;style slot="styles"&gt;{userStyles}&lt;/style&gt;
+            &lt;/BasicDemo&gt;
+        );
+      }
+    }
+  </code>
+  <div id="styles-demo" class="output"></div>
   <h2 id="slots">Working With Slots</h2>
   <p>Let's steal an example from <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#A_more_involved_example" target="_blank">MDN</a>.
   We'll modify it to be a React component instead of a web component. Be sure to include <code class="inline">{this.props.children}</code> after the closing ShadowRoot tag. Below is the React equivalent of the template.</p>

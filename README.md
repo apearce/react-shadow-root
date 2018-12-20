@@ -62,7 +62,7 @@ When the shadow root is created on its parent element, all children are copied i
 | `mode` | `String` | `open` or `closed` | `closed` | Sets the mode of the shadow root. |
 
 ## StyleSlot
-Add a `StyleSlot` after the styles for your component. If a user passes a child `style` tag with the `slot` attribute set to the same name as the `StyleSlot` components `name` attribute, the styles will be merged in to the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#style-slot)
+Add a `StyleSlot` after the styles for your component. If a user passes a child `style` tag with the `slot` attribute set to the same name as the `StyleSlot` components `name` attribute, the styles will be merged in to the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#style-slot) for more information.
 ### Props
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
