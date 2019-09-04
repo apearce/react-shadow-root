@@ -1,6 +1,7 @@
 import React from "react";
 import ShadowRoot from "../../../lib";
 
+const { constructableStylesheetsSupported } = ShadowRoot;
 const styles = `span {
   background-color: #333;
   border-radius: 3px;
@@ -18,7 +19,19 @@ button {
 button:active {
   background-color: #333;
   color: #fff;
+}
+.fallback-message {
+  color: #c00;
 }`;
+
+let sheet;
+let styleSheets;
+
+if (constructableStylesheetsSupported) {
+  sheet = new CSSStyleSheet();
+  sheet.replaceSync(styles);
+  styleSheets = [sheet];
+}
 
 export default class extends React.Component {
   state = { cnt: 0 };
@@ -31,12 +44,19 @@ export default class extends React.Component {
 
   render() {
     return (
-      <basic-demo> {/* The shadow root will be attached to this element */}
-        <ShadowRoot>
-          <style>{styles}</style>
+      <constructable-demo>
+        <ShadowRoot stylesheets={styleSheets}>
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
+          {!constructableStylesheetsSupported &&
+            <>
+              <p className="fallback-message">
+                Your browser does not support constructable stylesheets. Using fallback.
+              </p>
+              <style>{styles}</style>
+            </>
+          }
         </ShadowRoot>
-      </basic-demo>
+      </constructable-demo>
     );
   }
 }

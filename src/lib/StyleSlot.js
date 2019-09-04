@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import IllegalNodeError from './IllegalNodeError.js';
 
-export default class StyleSlot extends React.PureComponent {
+export default class extends React.PureComponent {
   state = { assignedNodes: [] };
-
-  static propTypes = {
-    name: PropTypes.string
-  };
 
   static defaultProps = {
     name: 'styles'
+  };
+  static displayName = 'StyleSlot';
+  static propTypes = {
+    name: PropTypes.string
   };
 
   manageAssignedNodes() {

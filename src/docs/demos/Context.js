@@ -27,7 +27,7 @@ class Foo extends React.Component {
 
 class ContextTest extends React.Component {
   render() {
-    return (<MyContext.Provider value="Tania">
+    return (<MyContext.Provider value="Pearce">
       <Foo />
     </MyContext.Provider>);
   }

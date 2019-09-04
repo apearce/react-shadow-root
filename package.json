@@ -49,5 +49,8 @@
     "bugs": {
         "url": "https://github.com/apearce/react-shadow-root/issues"
     },
-    "homepage": "https://github.com/apearce/react-shadow-root#readme"
+    "homepage": "https://github.com/apearce/react-shadow-root#readme",
+    "dependencies": {
+        "react-syntax-highlighter": "^11.0.2"
+    }
 }

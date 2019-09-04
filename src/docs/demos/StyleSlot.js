@@ -1,7 +1,7 @@
 import React from "react";
 import ShadowRoot, { StyleSlot } from "../../../lib";
 
-class BasicDemo extends React.Component {
+class StyleSlotDemo extends React.Component {
   state = { cnt: 0 };
 
   increment = () => {
@@ -31,19 +31,19 @@ class BasicDemo extends React.Component {
     }`;
 
     return (
-      <div>
+      <style-slot-demo>
         <ShadowRoot>
           <style>{style}</style>
           <StyleSlot />
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
         </ShadowRoot>
         {this.props.children}
-      </div>
+      </style-slot-demo>
     );
   }
 }
 
-export default class StylesDemo extends React.Component {
+export default class extends React.Component {
   render() {
     const userStyles = `:host span {
       background-color: #c00;
@@ -57,9 +57,9 @@ export default class StylesDemo extends React.Component {
     }`;
 
     return (
-        <BasicDemo>
+        <StyleSlotDemo>
           <style slot="styles">{userStyles}</style>
-        </BasicDemo>
+        </StyleSlotDemo>
     );
   }
 }
