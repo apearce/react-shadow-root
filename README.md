@@ -43,7 +43,7 @@ class ShadowCounter extends React.Component {
     }`;
 
     return (
-      <div> // The shadow root will be attached to this DIV
+      <div> {/* The shadow root will be attached to this DIV */}
         <ShadowRoot>
           <style>{style}</style>
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
