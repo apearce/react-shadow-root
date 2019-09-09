@@ -27,12 +27,6 @@ header h1 {
   margin: 0;
 }
 
-@media (min-width: 425px) {
-  header h1 {
-    font-size: 3em;
-  }
-}
-
 header h2 {
   color: #666;
   font-size: 1em;
@@ -42,12 +36,6 @@ header h2 {
 main {
   display: flex;
   margin: 0 5%;
-}
-
-@media (max-width: 1023px) {
-  main {
-    margin: 0 10px;
-  }
 }
 
 main > section {
@@ -85,12 +73,6 @@ nav {
   margin: 20px;
   margin-right: 0;
   padding-left: 20px;
-}
-
-@media (max-width: 666px) {
-  nav {
-    display: none;
-  }
 }
 
 nav a {
@@ -161,6 +143,29 @@ focus-demo:focus {
 .not-supported {
   color: #c00;
   margin: 0;
+}
+
+@media (max-width: 1023px) {
+  main {
+    margin: 0 10px;
+  }
+
+  nav {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+}
+
+@media (min-width: 425px) {
+  header h1 {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 666px) {
+  nav {
+    display: none;
+  }
 }
 
 @media print {

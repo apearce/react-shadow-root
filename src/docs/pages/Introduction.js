@@ -5,7 +5,7 @@ export default function(props) {
   return (<article>
     <h2 id="intro">Introduction</h2>
     <p>
-      React shadow root allows you to use the <A url="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">shadow DOM</A> in
+      <A url="https://github.com/apearce/react-shadow-root">React shadow root</A> allows you to use the <A url="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">shadow DOM</A> in
       your <A url="https://reactjs.org/">React</A> components. The biggest advantage of this is that you can include
       your CSS with your component and it will be scoped to the shadow DOM. The styles don't leak out
       of the shadow DOM and only inheritable styles can't get in. You can use a preprocessor or whatever you like to
@@ -22,7 +22,7 @@ export default function(props) {
       <ul>
         <li>A minimum of React 16 is required.</li>
         <li>Not all browsers support the shadow DOM. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility">here</A> for current browser support.</li>
-        <li>Not all HTML elements support the shadow DOM. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to">here</A> for more information.</li>
+        <li>Not all HTML elements allow you to attach a shadow root. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to">here</A> for more information.</li>
         <li>It has been tested with the Context API introduced in React 16.3.0 and it worked fine. It has not been tested with the previous API.</li>
       </ul>
   </article>);
