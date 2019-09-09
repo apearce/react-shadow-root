@@ -18,13 +18,19 @@ header {
   height: 150px;
   justify-content: center;
   margin: 0;
+  text-align: center;
   width: 100%;
 }
 
 header h1 {
   font-family: monospace;
-  font-size: 3em;
   margin: 0;
+}
+
+@media (min-width: 425px) {
+  header h1 {
+    font-size: 3em;
+  }
 }
 
 header h2 {
@@ -35,13 +41,25 @@ header h2 {
 
 main {
   display: flex;
-  margin: 0 100px;
+  margin: 0 5%;
+}
+
+@media (max-width: 1023px) {
+  main {
+    margin: 0 10px;
+  }
+}
+
+main > section {
+  overflow-y: hidden;
 }
 
 pre {
   background-color: #eee !important; /* Overriding an inline style. Grrrrr */
   border-radius: 5px;
   font-size: 14px;
+  overflow-y: scroll !important; /* Overriding an inline style. Grrrrr */
+  padding-right: 15px !important; /* Overriding an inline style. Grrrrr */
 }
 
 code {
@@ -65,8 +83,14 @@ nav {
   box-sizing: border-box;
   flex-shrink: 0;
   margin: 20px;
+  margin-right: 0;
   padding-left: 20px;
-  width: 250px;
+}
+
+@media (max-width: 666px) {
+  nav {
+    display: none;
+  }
 }
 
 nav a {
@@ -88,13 +112,16 @@ nav a {
 }
 
 nav ul {
+  background-color: #fff;
   list-style-type: none;
   margin: 0;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 0;
+  padding-bottom: 30px;
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
+  z-index: 1;
 }
 
 nav ul li {
@@ -134,4 +161,19 @@ focus-demo:focus {
 .not-supported {
   color: #c00;
   margin: 0;
+}
+
+@media print {
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+
+  code {
+    white-space: pre-wrap !important; /* Overriding an inline style. Grrrrr */
+  }
+
+  nav {
+    display: none;
+  }
 }

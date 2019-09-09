@@ -37,6 +37,7 @@ const styles = `
     cursor: pointer;
     height: 100%;
     margin-left: auto;
+    margin-right: 0;
     outline: 0;
   }
   button:hover {
