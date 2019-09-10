@@ -17,7 +17,7 @@ export default class extends React.PureComponent {
   static constructibleStylesheetsSupported = constructableStylesheetsSupported;
   static defaultProps = {
     delegatesFocus: false,
-    mode: 'closed'
+    mode: 'open'
   };
   static displayName = 'ShadowRoot';
   static propTypes = {
