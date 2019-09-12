@@ -18,6 +18,10 @@ export default function(props) {
       from your main CSS file if needed. Since the behavior is defined with React, you should not need
       to <A url="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">register</A> the custom element.
     </p>
+    <h3>Installation</h3>
+    <code className="block">npm install --save react-shadow-root</code>
+    <em>or</em>
+    <code className="block">yarn add react-shadow-root</code>
     <h3>Notes</h3>
     <ul>
       <li>A minimum of React 16 is required.</li>

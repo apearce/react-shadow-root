@@ -91,6 +91,14 @@ code {
   background-color: #eee;
 }
 
+code.block {
+  border-radius: 3px;
+  display: block;
+  padding: 5px;
+  width: fit-content;
+}
+
+code.block,
 code.inline {
   font-size: 16px;
 }
