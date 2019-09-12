@@ -1,11 +1,13 @@
 import React from "react";
-import Demo from "../demos/Basic";
+import Basic from "../demos/Basic";
+import BasicFunctional from "../demos/BasicFunctional";
 import A from "../utils/A";
 import { JSXBlock } from "../utils/CodeBlock";
 import NotSupported from "../utils/NotSupported";
 
 export default function(props) {
-  const Component = props.shadowRootSupported ? Demo : NotSupported;
+  const Component = props.shadowRootSupported ? Basic : NotSupported;
+  const ComponentFunctional = props.shadowRootSupported ? BasicFunctional : NotSupported;
   const code = `
   import React from 'react';
   import ShadowRoot from 'react-shadow-root';
@@ -57,6 +59,23 @@ export default function(props) {
     }
   }
   `;
+  const functionalCode = `
+  import React, { useState } from 'react';
+  ...
+  export default function() {
+    const [cnt, setCount] = useState(0);
+
+    return (
+      <basic-functional-demo> {/* The shadow root will be attached to this element */}
+        <ShadowRoot>
+          <style>{styles}</style>
+          <span>{cnt}</span>
+          <button onClick={() => setCount(cnt + 1)}>Click Me</button>
+        </ShadowRoot>
+      </basic-functional-demo>
+    );
+  }
+  `;
   const linkCode = `
   <ShadowRoot>
     <link href="stylesheet.css" rel="stylesheet" />
@@ -71,6 +90,11 @@ export default function(props) {
     This is the output:
     <div className="output">
       <Component />
+    </div>
+    <p>It also works fine with functional components:</p>
+    <JSXBlock code={functionalCode} />
+    <div className="output">
+      <ComponentFunctional />
     </div>
     <p>
       You can also load an external stylesheet using a <A url="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link">link</A> tag the the styles will be loaded and scoped appropriately.

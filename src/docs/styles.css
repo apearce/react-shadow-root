@@ -98,6 +98,10 @@ code.block {
   width: fit-content;
 }
 
+code.inline {
+  padding: 0 3px;
+}
+
 code.block,
 code.inline {
   font-size: 16px;

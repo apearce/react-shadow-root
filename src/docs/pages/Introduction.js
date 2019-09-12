@@ -19,7 +19,7 @@ export default function(props) {
       to <A url="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">register</A> the custom element.
     </p>
     <h3>Installation</h3>
-    <code className="block">npm install --save react-shadow-root</code>
+    <code className="block">npm i -S react-shadow-root</code>
     <em>or</em>
     <code className="block">yarn add react-shadow-root</code>
     <h3>Notes</h3>
