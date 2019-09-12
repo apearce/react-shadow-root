@@ -55,7 +55,7 @@ class ShadowCounter extends React.Component {
 ```
 When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
 
-### Static properties
+### Static Properties
 | Name | Description |
 |------|-------------|
 | `constructableStylesheetsSupported` | A boolean telling you if constructable stylesheets are supported by the browser. |
@@ -78,6 +78,6 @@ Add a `StyleSlot` after the styles for your component. If a user passes a child 
 
 ## Notes
 - A minimum of React 16 is required.
-- Not all browsers support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.
-- Not all HTML elements support the shadow DOM. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to) for more information.
+- Works in all modern browsers except non-Chromium Edge. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.
+- Not all HTML elements allow you to attach a shadow root. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to) for more information.
 - It has been tested with the Context API introduced in React 16.3.0 and it worked fine. It has not been tested with the previous API.

@@ -54,7 +54,7 @@ export default function(props) {
     which is <code className="inline">styles</code> by default. Note the use of <code className="inline">:host</code> in <code className="inline">userStyles</code>.
     <code className="inline">:host</code> only works in the shadow DOM. This ensures the styles do not affect the rest of the page.</p>
     <JSXBlock code={usageCode} />
-    <div id="styles-demo" className="output">
+    <div className="output">
       <Component />
     </div>
     <p>

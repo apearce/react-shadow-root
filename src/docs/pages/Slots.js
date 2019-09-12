@@ -72,7 +72,7 @@ export default function(props) {
     And how you might use it:
     <JSXBlock code={useageCode} />
     This is the end result:
-    <div id="slots-demo" className="output">
+    <div className="output">
       <Component />
     </div>
   </article>);

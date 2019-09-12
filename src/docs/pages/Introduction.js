@@ -21,7 +21,7 @@ export default function(props) {
     <h3>Notes</h3>
     <ul>
       <li>A minimum of React 16 is required.</li>
-      <li>Not all browsers support the shadow DOM. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility">here</A> for current browser support.</li>
+      <li>Works in all modern browsers except non-Chromium Edge. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility">here</A> for current browser support.</li>
       <li>Not all HTML elements allow you to attach a shadow root. Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to">here</A> for more information.</li>
       <li>It has been tested with the Context API introduced in React 16.3.0 and it worked fine. It has not been tested with the previous API.</li>
     </ul>

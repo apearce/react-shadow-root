@@ -11,7 +11,11 @@ export default function(props) {
   import ShadowRoot from 'react-shadow-root';
 
   const { constructableStylesheetsSupported } = ShadowRoot;
-  const styles = \`span {
+  const styles = \`:host {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  span {
     background-color: #333;
     border-radius: 3px;
     color: #fff;
@@ -21,7 +25,6 @@ export default function(props) {
     background-color: #fff;
     border: 1px solid currentColor;
     border-radius: 3px;
-    color: #333;
     cursor: pointer;
     outline: 0;
   }
@@ -29,7 +32,12 @@ export default function(props) {
     background-color: #333;
     color: #fff;
   }
+  button,
+  span {
+    margin: 0 2px;
+  }
   .fallback-message {
+    background-color: transparent;
     color: #c00;
   }\`;
 
@@ -55,12 +63,13 @@ export default function(props) {
       return (
         <constructable-demo>
           <ShadowRoot stylesheets={styleSheets}>
-            <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
+            <span>{this.state.cnt}</span>
+            <button onClick={this.increment}>Click Me</button>
             {!constructableStylesheetsSupported &&
               <>
-                <p className="fallback-message">
+                <span className="fallback-message">
                   Your browser does not support constructable stylesheets. Using fallback.
-                </p>
+                </span>
                 <style>{styles}</style>
               </>
             }
@@ -87,7 +96,7 @@ export default function(props) {
       to <em>all</em> components using the stylesheet.
     </p>
     <JSXBlock code={code} />
-    <div id="constructable-demo" className="output">
+    <div className="output">
       <Component />
     </div>
     <p>
@@ -96,9 +105,11 @@ export default function(props) {
       The example also contains a fallback for browsers that don't support constructable stylesheets.
     </p>
     <p>
-      If you do provide such a fallback, it is important to put it <em>after</em> any other styles in the shadow DOM,
-      including any <a href="#style-slot">mechanism</a> for letting the user inject their own. This is because constructable stylesheets
-      are added <A url="https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets">after</A> any styles already in the shadow DOM.
+      <strong>
+        If you do provide such a fallback, it is important to put it <em>after</em> any other styles in the shadow DOM,
+        including any <a href="#style-slot">mechanism</a> for letting the user inject their own. This is because constructable stylesheets
+        are added <A url="https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets">after</A> any styles already in the shadow DOM.
+      </strong>
     </p>
   </article>);
 }

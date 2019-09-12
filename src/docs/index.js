@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import APIPage from "./pages/API";
 import BasicPage from "./pages/Basic";
 import ConstructablePage from "./pages/Constructable";
 import DelegatesFocusPage from "./pages/DelegatesFocus";
+import DynamicStylesPage from "./pages/DynamicStyles";
 import IntroductionPage from "./pages/Introduction";
 import SlotsPage from "./pages/Slots";
 import StyleSlotPage from "./pages/StyleSlot";
@@ -12,12 +14,13 @@ import "./styles.css";
 
 const shadowRootSupported = ShadowRoot.shadowRootSupported;
 
+const subheaders = [
+  "Styles go in and they don't come out",
+  "You got your Web components in my React components!",
+  "Put your style where your substance is"
+];
+
 function Header() {
-  const subheaders = [
-    "Styles go in and they don't come out",
-    "You got your Web components in my React components!",
-    "Put your style where your substance is"
-  ];
   const subheader = subheaders[Math.floor(Math.random() * subheaders.length)];
 
   return (<>
@@ -29,8 +32,10 @@ function Header() {
 function Main() {
   return (<>
     <IntroductionPage />
+    <APIPage />
     <BasicPage shadowRootSupported={shadowRootSupported} />
     <ConstructablePage shadowRootSupported={shadowRootSupported} />
+    <DynamicStylesPage shadowRootSupported={shadowRootSupported} />
     <SlotsPage shadowRootSupported={shadowRootSupported} />
     <StyleSlotPage shadowRootSupported={shadowRootSupported} />
     <DelegatesFocusPage shadowRootSupported={shadowRootSupported} />
