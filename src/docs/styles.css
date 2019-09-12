@@ -51,11 +51,13 @@ main > section {
 }
 
 #api ~ section h3 {
-  display: inline-block;
   left: 0;
+  margin-right: -100%; /* Hack for Safari. Grrrrr */
   margin-top: 0;
-  position: -webkit-sticky;
+  position: -webkit-sticky; /* Hack for Safari. Grrrrr */
   position: sticky;
+  white-space: nowrap; /* Hack for Safari. Grrrrr */
+  width: 0; /* Hack for Safari. Grrrrr */
 }
 
 table {
