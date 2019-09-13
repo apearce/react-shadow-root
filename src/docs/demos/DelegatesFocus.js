@@ -1,5 +1,5 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
 export default class extends React.Component {
   render() {
@@ -20,11 +20,11 @@ export default class extends React.Component {
 
     return (
       <focus-demo>
-        <ShadowRoot delegatesFocus={delegatesFocus}>
+        <ReactShadowRoot delegatesFocus={delegatesFocus}>
           <style>{style}</style>
           <div>Clickable Shadow DOM text</div>
           <input type="text" placeholder="Input inside shadow dom" />
-        </ShadowRoot>
+        </ReactShadowRoot>
       </focus-demo>
     );
   }

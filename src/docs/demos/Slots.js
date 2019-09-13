@@ -1,7 +1,7 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
-const { constructableStylesheetsSupported } = ShadowRoot;
+const { constructableStylesheetsSupported } = ReactShadowRoot;
 const styles = `
   :host { background-color: #fff; display:block; }
   details { font-family: "Open Sans Light",Helvetica,Arial; }
@@ -26,7 +26,7 @@ if (constructableStylesheetsSupported) {
 class ElementDetails extends React.Component {
   render() {
     return (<element-details>
-      <ShadowRoot stylesheets={styleSheets}>
+      <ReactShadowRoot stylesheets={styleSheets}>
         <details>
           <summary>
             <span>
@@ -41,7 +41,7 @@ class ElementDetails extends React.Component {
         </details>
         <hr />
         {!constructableStylesheetsSupported && <style>{styles}</style>}
-      </ShadowRoot>
+      </ReactShadowRoot>
       {this.props.children}
     </element-details>);
   }

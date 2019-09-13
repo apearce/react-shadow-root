@@ -8,9 +8,9 @@ export default function(props) {
   const Component = props.shadowRootSupported ? Demo : NotSupported;
   const code = `
   import React from 'react';
-  import ShadowRoot from 'react-shadow-root';
+  import ReactShadowRoot from 'react-shadow-root';
 
-  const { constructableStylesheetsSupported } = ShadowRoot;
+  const { constructableStylesheetsSupported } = ReactShadowRoot;
   const colors = [
     'black', 'red', 'rebeccapurple', 'blue', 'brown',
     'lime', 'magenta', 'green', 'orange', 'teal'
@@ -71,14 +71,14 @@ export default function(props) {
 
       return (
         <dynamic-styles-demo>
-          <ShadowRoot stylesheets={styleSheets}>
+          <ReactShadowRoot stylesheets={styleSheets}>
             <style>{dynamicStyles}</style>
             <span>{cnt}</span>
             <button onClick={this.increment}>Click Me</button>
             {!constructableStylesheetsSupported &&
               <style>{styles}</style>
             }
-          </ShadowRoot>
+          </ReactShadowRoot>
         </dynamic-styles-demo>
       );
     }

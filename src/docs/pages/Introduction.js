@@ -14,7 +14,7 @@ export default function(props) {
     <p>
       In the examples I am using <A url="http://w3c.github.io/webcomponents/spec/custom/#valid-custom-element-name">valid custom element names</A> for
       the shadow host instead of a more generic <code className="inline">div</code> or <code className="inline">span</code>.
-      This is not required, but I find it can make debugging easier and it allows you to easily target your components
+      This is <strong>not required</strong>, but I find it can make debugging easier and it allows you to easily target your components
       from your main CSS file if needed. Since the behavior is defined with React, you should not need
       to <A url="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry">register</A> the custom element.
     </p>

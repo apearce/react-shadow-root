@@ -1,7 +1,7 @@
-import ShadowRoot from './ShadowRoot.js';
+import ReactShadowRoot from './ReactShadowRoot.js';
 import StyleSlot from './StyleSlot.js';
 
-ShadowRoot.StyleSlot = StyleSlot;
+ReactShadowRoot.StyleSlot = StyleSlot;
 
-export default ShadowRoot;
+export default ReactShadowRoot;
 export { StyleSlot };

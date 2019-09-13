@@ -1,5 +1,5 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
 const styles = `
   :host {
@@ -109,7 +109,7 @@ class Select extends React.Component {
     };
     return (
       <select-demo>
-        <ShadowRoot>
+        <ReactShadowRoot>
           <div>
             <output {...outputClass}>{selected.label || 'Select Something'}</output>
             <button onClick={this.toggle}>{String.fromCharCode(arrow)}</button>
@@ -118,7 +118,7 @@ class Select extends React.Component {
             {this.props.children}
           </ul>}
           <style>{styles}</style>
-        </ShadowRoot>
+        </ReactShadowRoot>
       </select-demo>
     );
   }

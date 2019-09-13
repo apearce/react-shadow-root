@@ -10,7 +10,7 @@ export default function(props) {
   class ElementDetails extends React.Component {
     render() {
       return (<element-details>
-        <ShadowRoot stylesheets={styleSheets}>
+        <ReactShadowRoot stylesheets={styleSheets}>
           <details>
             <summary>
               <span>
@@ -25,7 +25,7 @@ export default function(props) {
           </details>
           <hr />
           {!constructableStylesheetsSupported && <style>{styles}</style>}
-        </ShadowRoot>
+        </ReactShadowRoot>
         {this.props.children}
       </element-details>);
     }
@@ -66,7 +66,8 @@ export default function(props) {
     </p>
     <p>
       Let's steal an example from <A url="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#A_more_involved_example">MDN</A>.
-      We'll modify it to be a React component instead of a web component. Be sure to include <code className="inline">{'{this.props.children}'}</code> after the closing ShadowRoot tag. Below is the React equivalent of the template.
+      We'll modify it to be a React component instead of a web component. Be sure to include <code className="inline">{'{this.props.children}'}</code> after the
+      closing <code className="inline">ReactShadowRoot</code> tag. Below is the React equivalent of the template.
     </p>
     <JSXBlock code={componentCode} />
     And how you might use it:

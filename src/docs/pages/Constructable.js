@@ -8,9 +8,9 @@ export default function(props) {
   const Component = props.shadowRootSupported ? Demo : NotSupported;
   const code = `
   import React from 'react';
-  import ShadowRoot from 'react-shadow-root';
+  import ReactShadowRoot from 'react-shadow-root';
 
-  const { constructableStylesheetsSupported } = ShadowRoot;
+  const { constructableStylesheetsSupported } = ReactShadowRoot;
   const styles = \`:host {
     display: inline-flex;
     flex-wrap: wrap;
@@ -62,7 +62,7 @@ export default function(props) {
     render() {
       return (
         <constructable-demo>
-          <ShadowRoot stylesheets={styleSheets}>
+          <ReactShadowRoot stylesheets={styleSheets}>
             <span>{this.state.cnt}</span>
             <button onClick={this.increment}>Click Me</button>
             {!constructableStylesheetsSupported &&
@@ -73,7 +73,7 @@ export default function(props) {
                 <style>{styles}</style>
               </>
             }
-          </ShadowRoot>
+          </ReactShadowRoot>
         </constructable-demo>
       );
     }

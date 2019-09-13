@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
 const styles = `:host {
   display: inline-flex;
@@ -31,11 +31,11 @@ export default function() {
 
   return (
     <basic-functional-demo> {/* The shadow root will be attached to this element */}
-      <ShadowRoot>
+      <ReactShadowRoot>
         <style>{styles}</style>
         <span>{cnt}</span>
         <button onClick={() => setCount(cnt + 1)}>Click Me</button>
-      </ShadowRoot>
+      </ReactShadowRoot>
     </basic-functional-demo>
   );
 }

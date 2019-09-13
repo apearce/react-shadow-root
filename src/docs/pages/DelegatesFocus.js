@@ -26,11 +26,11 @@ export default function(props) {
 
       return (
         <focus-demo>
-          <ShadowRoot delegatesFocus={delegatesFocus}>
+          <ReactShadowRoot delegatesFocus={delegatesFocus}>
             <style>{style}</style>
             <div>Clickable Shadow DOM text</div>
             <input type="text" placeholder="Input inside shadow dom" />
-          </ShadowRoot>
+          </ReactShadowRoot>
         </focus-demo>
       );
     }
@@ -49,7 +49,7 @@ export default function(props) {
       <p>A boolean that, when set to true, specifies behavior that mitigates custom element issues around focusability. When a non-focusable part of the shadow DOM is clicked, the first focusable part is given focus, and the shadow host is given any available <code className="inline">:focus</code> styling.</p>
     </blockquote>
     <p>
-      Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility">here</A> for browser support and <A url="https://developers.google.com/web/fundamentals/web-components/shadowdom#focus">here</A> for more info on <code className="inline">delegatesFocus</code>.
+      Click <A url="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/delegatesFocus#Browser_compatibility">here</A> for browser support and <A url="https://developers.google.com/web/fundamentals/web-components/shadowdom#focus">here</A> for more info on <code className="inline">delegatesFocus</code>.
       Below are live demos of the examples from that article which of course will only work in supported browsers.
     </p>
     <JSXBlock code={code} />

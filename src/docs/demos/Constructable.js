@@ -1,7 +1,7 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
-const { constructableStylesheetsSupported } = ShadowRoot;
+const { constructableStylesheetsSupported } = ReactShadowRoot;
 const styles = `:host {
   display: inline-flex;
   flex-wrap: wrap;
@@ -53,7 +53,7 @@ export default class extends React.Component {
   render() {
     return (
       <constructable-demo>
-        <ShadowRoot stylesheets={styleSheets}>
+        <ReactShadowRoot stylesheets={styleSheets}>
           <span>{this.state.cnt}</span>
           <button onClick={this.increment}>Click Me</button>
           {!constructableStylesheetsSupported &&
@@ -64,7 +64,7 @@ export default class extends React.Component {
               <style>{styles}</style>
             </>
           }
-        </ShadowRoot>
+        </ReactShadowRoot>
       </constructable-demo>
     );
   }

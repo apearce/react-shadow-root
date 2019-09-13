@@ -1,5 +1,5 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
 const MyContext = React.createContext('Alan');
 
@@ -21,7 +21,7 @@ class Bar extends React.Component {
 
 class Foo extends React.Component {
   render() {
-    return (<div><ShadowRoot><Bar /></ShadowRoot></div>);
+    return (<div><ReactShadowRoot><Bar /></ReactShadowRoot></div>);
   }
 }
 

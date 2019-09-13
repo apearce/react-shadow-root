@@ -54,14 +54,14 @@ export default function(props) {
             <td><code className="inline">String</code></td>
             <td><code className="inline">open</code> or <code className="inline">closed</code></td>
             <td><code className="inline">open</code></td>
-            <td>Sets the mode of the shadow root.</td>
+            <td>Sets the <A url="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode">mode</A> of the shadow root.</td>
           </tr>
           <tr>
             <td><code className="inline">stylesheets</code></td>
             <td><code className="inline">Array</code></td>
             <td><code className="inline">arrayOf(CSSStyleSheet)</code></td>
             <td>optional</td>
-            <td>Takes an array of CSSStyleSheet objects for constructable stylesheets.</td>
+            <td>Takes an array of <A url="https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet">CSSStyleSheet</A> objects for constructable stylesheets.</td>
           </tr>
         </tbody>
       </table>

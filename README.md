@@ -7,11 +7,11 @@ Lets you add a shadow root to React components allowing you to use the shadow DO
 ## Examples
 https://apearce.github.io/react-shadow-root/
 
-## ShadowRoot
+## ReactShadowRoot
 ### Usage
 ```jsx
 import React form 'react';
-import ShadowRoot from 'react-shadow-root';
+import ReactShadowRoot from 'react-shadow-root';
 
 class ShadowCounter extends React.Component {
   state = { cnt: 0 };
@@ -44,16 +44,16 @@ class ShadowCounter extends React.Component {
 
     return (
       <div> {/* The shadow root will be attached to this DIV */}
-        <ShadowRoot>
+        <ReactShadowRoot>
           <style>{style}</style>
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
-        </ShadowRoot>
+        </ReactShadowRoot>
       </div>
     );
   }
 }
 ```
-When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ShadowRoot` tag.
+When the shadow root is created on its parent element, all children are copied into the shadow DOM. Styles in the shadow DOM are automatically scoped. You can inspect the element to confirm. [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot) work as expected; just be sure to add `{this.props.children}` _after_ the closing `ReactShadowRoot` tag.
 
 ### Static Properties
 | Name | Description |
@@ -66,8 +66,8 @@ When the shadow root is created on its parent element, all children are copied i
 | Prop | Type | Values | Default | Description |
 |------|------|--------|---------|-------------|
 | `delegatesFocus` | `Boolean` | `true` or `false` | `false` | Expands the focus behavior of elements within the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#delegates-focus) for more information. |
-| `mode` | `String` | `open` or `closed` | `open` | Sets the mode of the shadow root. |
-| `stylesheets` | `Array` | `arrayOf(CSSStyleSheet)` | optional | Takes an array of CSSStyleSheet objects for constructable stylesheets. |
+| `mode` | `String` | `open` or `closed` | `open` | Sets the [mode](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode) of the shadow root. |
+| `stylesheets` | `Array` | `arrayOf(CSSStyleSheet)` | optional | Takes an array of [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet) objects for constructable stylesheets. |
 
 ## StyleSlot (deprecated)
 Add a `StyleSlot` after the styles for your component. If a user passes a child `style` tag with the `slot` attribute set to the same name as the `StyleSlot` components `name` attribute, the styles will be merged in to the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#style-slot) for more information.

@@ -6,16 +6,16 @@ import NotSupported from "../utils/NotSupported";
 export default function(props) {
   const Component = props.shadowRootSupported ? Demo : NotSupported;
   const componentCode = `
-  import ShadowRoot, { StyleSlot } from 'react-shadow-root';
+  import ReactShadowRoot, { StyleSlot } from 'react-shadow-root';
   ...
   render() {
     return (
       <style-slot-demo>
-        <ShadowRoot>
+        <ReactShadowRoot>
           <style>{style}</style>
           <StyleSlot />
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
-        </ShadowRoot>
+        </ReactShadowRoot>
         {this.props.children}
       </style-slot-demo>
     );
@@ -46,8 +46,18 @@ export default function(props) {
 
   return (<article>
     <h2 id="style-slot">Using StyleSlot (deprecated)</h2>
-    <p>StyleSlot is a special <code className="inline">slot</code> you can add to the ShadowRoot of your component. It gives the user the ability to inject their own syles into the ShadowRoot.</p>
-    <p>Let's take the basic demo and allow the user to override styles. To do this, we have to add a StyleSlot to the ShadowRoot, along with allowing the component to render children.</p>
+    <p>
+      <code className="inline">StyleSlot</code> is a special <code className="inline">slot</code> you can add
+      to the <code className="inline">ReactShadowRoot</code> of your component.
+      It gives the user the ability to inject their own syles into
+      the <code className="inline">ReactShadowRoot</code>.
+    </p>
+    <p>
+      Let's take the basic demo and allow the user to override styles. To do
+      this, we have to add a <code className="inline">StyleSlot</code> to
+      the <code className="inline">ReactShadowRoot</code>,
+      along with allowing the component to render children.
+    </p>
     <JSXBlock code={componentCode} />
     <p>Now the user can easily override any styles in the shadow DOM of the component by passing a child <code className="inline">style</code> tag
     with the <code className="inline">slot</code> attribute set to the name of the StyleSlot's <code className="inline">name</code> prop,
@@ -60,8 +70,11 @@ export default function(props) {
     <p>
       <em>
         As with regular slots, this same thing can be achieved using props.
-        You may also experiance issues if you have nested components which have a StyleSlot, since even though the styles are moved to the shadow DOM,
-        they also still exist outside and <code className="inline">:host</code> would then be the parent component. <strong>This component is deprecated and will be removed in the near future.</strong>
+        You may also experiance issues if you have nested components which have
+        a <code className="inline">StyleSlot</code>, since even though the styles are moved to the shadow DOM,
+        they also still exist outside and <code className="inline">:host</code> would
+        then be the parent component.
+        <strong>This component is deprecated and will be removed in the near future.</strong>
       </em>
     </p>
   </article>);

@@ -1,7 +1,7 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
-const { constructableStylesheetsSupported } = ShadowRoot;
+const { constructableStylesheetsSupported } = ReactShadowRoot;
 const colors = [
   'black', 'red', 'rebeccapurple', 'blue', 'brown',
   'lime', 'magenta', 'green', 'orange', 'teal'
@@ -62,14 +62,14 @@ export default class extends React.Component {
 
     return (
       <dynamic-styles-demo>
-        <ShadowRoot stylesheets={styleSheets}>
+        <ReactShadowRoot stylesheets={styleSheets}>
           <style>{dynamicStyles}</style>
           <span>{cnt}</span>
           <button onClick={this.increment}>Click Me</button>
           {!constructableStylesheetsSupported &&
             <style>{styles}</style>
           }
-        </ShadowRoot>
+        </ReactShadowRoot>
       </dynamic-styles-demo>
     );
   }

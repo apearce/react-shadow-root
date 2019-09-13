@@ -19,7 +19,7 @@ export default class extends React.PureComponent {
     delegatesFocus: false,
     mode: 'open'
   };
-  static displayName = 'ShadowRoot';
+  static displayName = 'ReactShadowRoot';
   static propTypes = {
     delegatesFocus: PropTypes.bool,
     mode: PropTypes.oneOf(['open', 'closed']),

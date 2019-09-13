@@ -10,7 +10,7 @@ export default function(props) {
   const ComponentFunctional = props.shadowRootSupported ? BasicFunctional : NotSupported;
   const code = `
   import React from 'react';
-  import ShadowRoot from 'react-shadow-root';
+  import ReactShadowRoot from 'react-shadow-root';
 
   const styles = \`:host {
     display: inline-flex;
@@ -49,11 +49,11 @@ export default function(props) {
     render() {
       return (
         <basic-demo> {/* The shadow root will be attached to this element */}
-          <ShadowRoot>
+          <ReactShadowRoot>
             <style>{styles}</style>
             <span>{this.state.cnt}</span>
             <button onClick={this.increment}>Click Me</button>
-          </ShadowRoot>
+          </ReactShadowRoot>
         </basic-demo>
       );
     }
@@ -67,20 +67,20 @@ export default function(props) {
 
     return (
       <basic-functional-demo> {/* The shadow root will be attached to this element */}
-        <ShadowRoot>
+        <ReactShadowRoot>
           <style>{styles}</style>
           <span>{cnt}</span>
           <button onClick={() => setCount(cnt + 1)}>Click Me</button>
-        </ShadowRoot>
+        </ReactShadowRoot>
       </basic-functional-demo>
     );
   }
   `;
   const linkCode = `
-  <ShadowRoot>
+  <ReactShadowRoot>
     <link href="stylesheet.css" rel="stylesheet" />
     ...
-  </ShadowRoot>
+  </ReactShadowRoot>
   `;
 
   return (<article>

@@ -8,11 +8,11 @@ import DynamicStylesPage from "./pages/DynamicStyles";
 import IntroductionPage from "./pages/Introduction";
 import SlotsPage from "./pages/Slots";
 import StyleSlotPage from "./pages/StyleSlot";
-import ShadowRoot from "../lib/ShadowRoot";
+import ReactShadowRoot from "../lib/ReactShadowRoot";
 
 import "./styles.css";
 
-const shadowRootSupported = ShadowRoot.shadowRootSupported;
+const shadowRootSupported = ReactShadowRoot.shadowRootSupported;
 
 const subheaders = [
   "Styles go in and they don't come out",

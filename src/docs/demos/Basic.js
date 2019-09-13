@@ -1,5 +1,5 @@
 import React from "react";
-import ShadowRoot from "../../../lib";
+import ReactShadowRoot from "../../../lib";
 
 const styles = `:host {
   display: inline-flex;
@@ -38,11 +38,11 @@ export default class extends React.Component {
   render() {
     return (
       <basic-demo> {/* The shadow root will be attached to this element */}
-        <ShadowRoot>
+        <ReactShadowRoot>
           <style>{styles}</style>
           <span>{this.state.cnt}</span>
           <button onClick={this.increment}>Click Me</button>
-        </ShadowRoot>
+        </ReactShadowRoot>
       </basic-demo>
     );
   }

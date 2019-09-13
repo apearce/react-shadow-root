@@ -1,5 +1,5 @@
 import React from "react";
-import ShadowRoot, { StyleSlot } from "../../../lib";
+import ReactShadowRoot, { StyleSlot } from "../../../lib";
 
 class StyleSlotDemo extends React.Component {
   state = { cnt: 0 };
@@ -32,11 +32,11 @@ class StyleSlotDemo extends React.Component {
 
     return (
       <style-slot-demo>
-        <ShadowRoot>
+        <ReactShadowRoot>
           <style>{style}</style>
           <StyleSlot />
           <span>{this.state.cnt}</span> <button onClick={this.increment}>Click Me</button>
-        </ShadowRoot>
+        </ReactShadowRoot>
         {this.props.children}
       </style-slot-demo>
     );
