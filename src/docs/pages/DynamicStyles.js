@@ -1,7 +1,7 @@
 import React from "react";
 import Demo from "../demos/Dynamic";
 import A from "../utils/A";
-import { JSXBlock } from "../utils/CodeBlock";
+import { CSSBlock, JSXBlock } from "../utils/CodeBlock";
 import NotSupported from "../utils/NotSupported";
 
 export default function(props) {
@@ -84,7 +84,17 @@ export default function(props) {
     }
   }
   `;
-
+  const hostCSS = `
+  :host([reverse]) {
+    flex-direction: row-reverse;
+  }
+  `;
+  const removeCSS = `
+  flex-direction: $\{reverse ? 'row-reverse' : 'row'};
+  `;
+  const reverseAttrCode = `
+  <dynamic-styles-demo reverse={reverse}>
+  `;
   return (<article>
     <h2 id="dynamic">Dynamic Styling</h2>
     <p>
@@ -110,5 +120,19 @@ export default function(props) {
     <div className="output">
       <Component reverse />
     </div>
+    <p>
+      You could also use <code className="inline"><A url="https://developer.mozilla.org/en-US/docs/Web/CSS/:host()">:host()</A></code> in
+      the component's main stylesheet to reverse the order. To do so, add the following rule to the stylesheet:
+    </p>
+    <CSSBlock code={hostCSS} />
+    <p>Remove the following from the dynamic styles:</p>
+    <CSSBlock code={removeCSS} />
+    <p>And add <code className="inline">reverse</code> as an attribute of the returned element:</p>
+    <JSXBlock code={reverseAttrCode} />
+    <p>
+      React will only add the <code className="inline">reverse</code> attribute when
+      the <code className="inline">reverse</code> prop is true. When the attribute is
+      present, the <code className="inline">:host()</code> rule will be applied by the browser.
+    </p>
   </article>);
 }
