@@ -69,13 +69,6 @@ When the shadow root is created on its parent element, all children are copied i
 | `mode` | `String` | `open` or `closed` | `open` | Sets the [mode](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode) of the shadow root. |
 | `stylesheets` | `Array` | `arrayOf(CSSStyleSheet)` | optional | Takes an array of [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet) objects for constructable stylesheets. |
 
-## StyleSlot (deprecated)
-Add a `StyleSlot` after the styles for your component. If a user passes a child `style` tag with the `slot` attribute set to the same name as the `StyleSlot` components `name` attribute, the styles will be merged in to the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#style-slot) for more information.
-### Props
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `name` | `String` | `styles` | Sets the name of the slot. |
-
 ## Notes
 - A minimum of React 16 is required.
 - Works in all modern browsers except non-Chromium Edge. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.

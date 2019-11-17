@@ -7,7 +7,6 @@ import DelegatesFocusPage from "./pages/DelegatesFocus";
 import DynamicStylesPage from "./pages/DynamicStyles";
 import IntroductionPage from "./pages/Introduction";
 import SlotsPage from "./pages/Slots";
-import StyleSlotPage from "./pages/StyleSlot";
 import ReactShadowRoot from "../lib/ReactShadowRoot";
 
 import "./styles.css";
@@ -37,7 +36,6 @@ function Main() {
     <ConstructablePage shadowRootSupported={shadowRootSupported} />
     <DynamicStylesPage shadowRootSupported={shadowRootSupported} />
     <SlotsPage shadowRootSupported={shadowRootSupported} />
-    <StyleSlotPage shadowRootSupported={shadowRootSupported} />
     <DelegatesFocusPage shadowRootSupported={shadowRootSupported} />
   </>);
 }

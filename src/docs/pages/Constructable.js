@@ -107,7 +107,7 @@ export default function(props) {
     <p>
       <strong>
         If you do provide such a fallback, it is important to put it <em>after</em> any other styles in the shadow DOM,
-        including any <a href="#style-slot">mechanism</a> for letting the user inject their own. This is because constructable stylesheets
+        including any mechanism for letting the user inject their own. This is because constructable stylesheets
         are added <A url="https://wicg.github.io/construct-stylesheets/#using-constructed-stylesheets">after</A> any styles already in the shadow DOM.
       </strong>
     </p>
