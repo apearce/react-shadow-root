@@ -10,7 +10,7 @@ https://apearce.github.io/react-shadow-root/
 ## ReactShadowRoot
 ### Usage
 ```jsx
-import React form 'react';
+import React from 'react';
 import ReactShadowRoot from 'react-shadow-root';
 
 class ShadowCounter extends React.Component {
