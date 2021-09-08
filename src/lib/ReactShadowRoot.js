@@ -23,20 +23,20 @@ export default class extends React.PureComponent {
   static propTypes = {
     delegatesFocus: PropTypes.bool,
     mode: PropTypes.oneOf(['open', 'closed']),
-    stylesheets: PropTypes.arrayOf((propValue, idx, componentName, location, propFullName) => {
-      if (!(propValue[idx] instanceof window.CSSStyleSheet)) {
-        return new Error(
-          `Invalid prop \`${propFullName}\` supplied to \`${componentName}\`. Expected an instance of \`CSSStyleSheet\`.`
-        );
-      }
-    })
+    stylesheets: PropTypes.arrayOf(PropTypes.instanceOf(window.CSSStyleSheet))
   };
   static shadowRootSupported = shadowRootSupported;
 
   state = { initialized: false };
 
-  constructor() {
-    super();
+  /**
+   * @param {object} props Properties passed to the component
+   * @param {boolean} props.delegatesFocus  Expands the focus behavior of elements within the shadow DOM.
+   * @param {string} props.mode Sets the mode of the shadow root. (open or closed)
+   * @param {CSSStyleSheet[]} props.stylesheets Takes an array of CSSStyleSheet objects for constructable stylesheets.
+   */
+  constructor(props) {
+    super(props);
     this.placeholder = React.createRef();
   }
 

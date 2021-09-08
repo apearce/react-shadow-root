@@ -6,7 +6,7 @@
     "license": "MIT",
     "scripts": {
         "dev": "concurrently \"npm run build:watch\" \"npm run docs\"",
-        "build": "babel src/lib -d lib --copy-files",
+        "build": "tsc && babel src/lib -d lib --copy-files",
         "build:watch": "babel src/lib -w -d lib --copy-files",
         "docs": "webpack-dev-server --mode development",
         "docs:prod": "webpack --mode production"
@@ -23,6 +23,8 @@
         "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-react": "^7.9.4",
+        "@types/react": "^17.0.19",
+        "@types/react-dom": "^17.0.9",
         "babel-loader": "^8.1.0",
         "concurrently": "^3.5.1",
         "css-loader": "^3.4.2",
@@ -33,6 +35,7 @@
         "react-dom": "^16.13.1",
         "react-syntax-highlighter": "^11.0.2",
         "style-loader": "^0.23.0",
+        "typescript": "^4.4.2",
         "webpack": "^4.42.1",
         "webpack-cli": "^3.3.11",
         "webpack-dev-server": "^3.11.0"
