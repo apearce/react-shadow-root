@@ -3,6 +3,7 @@
     "version": "5.0.4",
     "description": "Adds a shadow root to React components",
     "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
     "license": "MIT",
     "scripts": {
         "dev": "concurrently \"npm run build:watch\" \"npm run docs\"",
