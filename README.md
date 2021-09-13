@@ -71,6 +71,7 @@ When the shadow root is created on its parent element, all children are copied i
 
 ## Notes
 - A minimum of React 16 is required.
+- TypeScript definitions included and should not require configuration
 - Works in all modern browsers except non-Chromium Edge. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Browser_compatibility) for current browser support.
 - Not all HTML elements allow you to attach a shadow root. Click [here](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow#Elements_you_can_attach_a_shadow_to) for more information.
 - It has been tested with the Context API introduced in React 16.3.0 and it worked fine. It has not been tested with the previous API.
