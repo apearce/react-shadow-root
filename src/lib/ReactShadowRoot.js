@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-const constructableStylesheetsSupported = window
+const constructableStylesheetsSupported = typeof window !== 'undefined'
   && window.ShadowRoot
   && window.ShadowRoot.prototype.hasOwnProperty('adoptedStyleSheets')
   && window.CSSStyleSheet
   && window.CSSStyleSheet.prototype.hasOwnProperty('replace');
 
-const shadowRootSupported = window
+const shadowRootSupported = typeof window !== 'undefined'
   && window.Element
   && window.Element.prototype.hasOwnProperty('attachShadow');
 
@@ -23,7 +23,7 @@ export default class extends React.PureComponent {
   static propTypes = {
     delegatesFocus: PropTypes.bool,
     mode: PropTypes.oneOf(['open', 'closed']),
-    stylesheets: PropTypes.arrayOf(PropTypes.instanceOf(window.CSSStyleSheet))
+    stylesheets: PropTypes.arrayOf(PropTypes.instanceOf(typeof window !== 'undefined' && window.CSSStyleSheet))
   };
   static shadowRootSupported = shadowRootSupported;
 
@@ -47,10 +47,11 @@ export default class extends React.PureComponent {
       stylesheets
     } = this.props;
 
-    this.shadowRoot = this.placeholder.current.parentNode.attachShadow({
-      delegatesFocus,
-      mode
-    });
+    this.shadowRoot = this.placeholder.current.parentNode.shadowRoot
+      ?? this.placeholder.current.parentNode.attachShadow({
+        delegatesFocus,
+        mode,
+      });
 
     if (stylesheets) {
       this.shadowRoot.adoptedStyleSheets = stylesheets;
@@ -63,7 +64,7 @@ export default class extends React.PureComponent {
 
   render() {
     if (!this.state.initialized) {
-      return <span ref={this.placeholder}></span>;
+      return <template shadowroot="open" ref={this.placeholder}>{this.props.children}</template>;
     }
 
     return ReactDOM.createPortal(this.props.children, this.shadowRoot);
