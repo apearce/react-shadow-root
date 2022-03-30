@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import APIPage from "./pages/API";
 import BasicPage from "./pages/Basic";
 import ConstructablePage from "./pages/Constructable";
+import DeclarativePage from "./pages/Declarative";
 import DelegatesFocusPage from "./pages/DelegatesFocus";
 import DynamicStylesPage from "./pages/DynamicStyles";
 import IntroductionPage from "./pages/Introduction";
@@ -33,9 +34,10 @@ function Main() {
     <IntroductionPage />
     <APIPage />
     <BasicPage shadowRootSupported={shadowRootSupported} />
-    <ConstructablePage shadowRootSupported={shadowRootSupported} />
     <DynamicStylesPage shadowRootSupported={shadowRootSupported} />
     <SlotsPage shadowRootSupported={shadowRootSupported} />
+    <DeclarativePage shadowRootSupported={shadowRootSupported} />
+    <ConstructablePage shadowRootSupported={shadowRootSupported} />
     <DelegatesFocusPage shadowRootSupported={shadowRootSupported} />
   </>);
 }

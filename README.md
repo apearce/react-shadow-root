@@ -65,6 +65,7 @@ When the shadow root is created on its parent element, all children are copied i
 ### Props
 | Prop | Type | Values | Default | Description |
 |------|------|--------|---------|-------------|
+| `declarative` | `Boolean` | `true` or `false` | `false` | Creates a [Declarative Shadow Root](https://apearce.github.io/react-shadow-root/#declarative) |
 | `delegatesFocus` | `Boolean` | `true` or `false` | `false` | Expands the focus behavior of elements within the shadow DOM. Click [here](https://apearce.github.io/react-shadow-root/#delegates-focus) for more information. |
 | `mode` | `String` | `open` or `closed` | `open` | Sets the [mode](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode) of the shadow root. |
 | `stylesheets` | `Array` | `arrayOf(CSSStyleSheet)` | optional | Takes an array of [CSSStyleSheet](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet) objects for constructable stylesheets. |
